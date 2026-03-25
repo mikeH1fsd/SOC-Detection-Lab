@@ -62,6 +62,7 @@ After completing the configuration, we simulate an SSH brute force attack to ver
 At the beginning, the Wazuh dashboard shows no security alerts, confirming that the system is in a normal state before the attack simulation.
 
 ![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/ssh_bruteforce/images/image2.png)
+
 From the attacker machine, we perform an SSH brute force attack against the Ubuntu server using Hydra:
 
 ```bash
