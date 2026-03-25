@@ -86,8 +86,8 @@ systemctl restart wazuh-manager
 
 After completing the configuration on both the Windows Agent and Wazuh Manager, we simulate the process injection attack to verify that the detection rule works as expected.
 
-![](https://github.com/user/repo/blob/main/scenarios/process_injection_detection/images/image.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image.png)
 Dashboard before attack (no alerts)
 
-![](https://github.com/user/repo/blob/main/scenarios/process_injection_detection/images/image1.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image1.png)
 Executing malicious file main.exe
