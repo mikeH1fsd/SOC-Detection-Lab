@@ -28,7 +28,7 @@ Active response triggered
         ↓
 Attacker IP blocked automatically
 
-## 3 Active Response Configuration
+## 2 Active Response Configuration
 
 To automatically block attackers performing SSH brute force attempts, Wazuh Active Response is configured to trigger a firewall block when rule **2502** is detected.
 
@@ -54,7 +54,7 @@ Run the following command to apply the configuration:
 ```bash
 sudo systemctl restart wazuh-manager
 ```
-## 4 Attack Simulation & Verification
+## 3 Attack Simulation & Verification
 
 After completing the configuration, we simulate an SSH brute force attack to verify that Wazuh can successfully detect the attack and automatically block the attacker's IP using Active Response.
 
@@ -69,9 +69,7 @@ hydra -l ubuntu -P rockyoumini.txt ssh://<target-ip>
 ```
 
 ![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/ssh_bruteforce/images/image3.png)
-After several failed login attempts, Wazuh detects the suspicious activity using the default rule 2502 (SSH authentication failed). A high severity alert is generated on the Wazuh dashboard.
-
-This confirms that the detection mechanism is functioning correctly.
+After several failed login attempts, Wazuh detects the suspicious activity using the default rule 2502. A high severity alert is generated on the Wazuh dashboard.
 
 ![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/ssh_bruteforce/images/image4.png)
 Once the alert is triggered, Wazuh automatically executes the Active Response module. The firewall-drop script is triggered to block the attacker's IP address
@@ -80,3 +78,19 @@ Once the alert is triggered, Wazuh automatically executes the Active Response mo
 To verify the effectiveness of the response, we attempt to connect from the attacker machine again. The attacker can no longer communicate with the victim server, and even ICMP ping requests fail.
 
 This confirms that the attacker's IP has been successfully blocked.
+
+## 4 Conclusion
+
+This lab demonstrates how Wazuh can effectively detect SSH brute force attacks and automatically respond to potential threats using the Active Response feature.
+
+During the attack simulation, multiple failed SSH login attempts generated authentication logs that were successfully collected by the Wazuh agent. The Wazuh manager analyzed these logs and triggered rule **2502**, generating a high severity alert indicating suspicious authentication activity.
+
+Following the detection, the Active Response mechanism automatically executed the firewall-drop script to block the attacker's IP address. This prevented further connection attempts and demonstrated Wazuh’s capability to not only detect but also actively mitigate ongoing attacks.
+
+This scenario highlights the importance of combining log monitoring, detection rules, and automated response to strengthen security operations. Such an approach can significantly reduce response time and improve the overall security posture of production environments.
+
+## References
+
+https://documentation.wazuh.com/current/proof-of-concept-guide/block-malicious-actor-ip-reputation.html
+
+https://documentation.wazuh.com/current/user-manual/capabilities/active-response/ar-use-cases/blocking-ssh-brute-force.html
