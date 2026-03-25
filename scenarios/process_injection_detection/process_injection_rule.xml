@@ -1,0 +1,15 @@
+<group name="windows,sysmon">
+  <rule id="100200" level="12">
+    <if_sid>61610</if_sid>
+    <description>Possible process injection activity detected from "$(win.eventdata.sourceImage)" on "$(win.eventdata.targetImage)"</description>
+    <mitre>
+      <id>T1055.001</id>
+    </mitre>
+  </rule>
+ 
+  <rule id="100100" level="0">
+    <if_sid>100200</if_sid>
+    <field name="win.eventdata.sourceImage" type="pcre2">(C:\\\\Windows\\\\system32)|chrome.exe</field>
+    <description>Ignore Windows binaries and Chrome</description>
+  </rule>
+</group>
