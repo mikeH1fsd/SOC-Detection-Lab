@@ -91,3 +91,15 @@ Dashboard before attack (no alerts)
 
 ![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image2.png)
 Executing malicious file main.exe
+
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image3.png)
+Malware performing injection into notepad.exe
+
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image4.png)
+Payload successfully executed
+
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image5.png)
+Wazuh Alert - Process Injection detected (1)
+
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image6.png)
+Wazuh Alert - Process Injection detected (2)
