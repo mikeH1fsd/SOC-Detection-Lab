@@ -20,14 +20,14 @@ This guide outlines the configuration steps to detect Process Injection (T1055.0
 1. Install Sysmon
 Open PowerShell as Administrator and run the following commands to download and install Sysmon:
 
-```
+```powershell
 Download-SysInternalsTools C:\Sysinternals 
 ```
 
 2. Download and Apply Sysmon Configuration
 We use the popular sysmon-config from SwiftOnSecurity for comprehensive logging:
 
-```
+```powershell
 # Download the configuration file
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml" -OutFile ".\sysmonconfig.xml"
 
@@ -38,7 +38,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon
 3. Configure Wazuh Agent to Collect Sysmon Logs
 Edit the Wazuh Agent configuration file located at ```C:\Program Files (x86)\ossec-agent\ossec.conf```. Add the following block within the <ossec_config> section:
 
-```
+```xml
 <localfile>
     <location>Microsoft-Windows-Sysmon/Operational</location>
     <log_format>eventchannel</log_format>
@@ -48,7 +48,7 @@ Edit the Wazuh Agent configuration file located at ```C:\Program Files (x86)\oss
 4. Restart Wazuh Agent
 Apply the changes by restarting the service:
 
-```
+```powershell
 Restart-Service -Name wazuh
 ```
 **Phase 2**: Wazuh Manager Configuration (Server Side)
