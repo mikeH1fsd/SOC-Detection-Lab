@@ -81,3 +81,13 @@ Run the following command to apply the new rules:
 ```Bash
 systemctl restart wazuh-manager
 ```
+
+## 3. Attack Simulation & Verification
+
+After completing the configuration on both the Windows Agent and Wazuh Manager, we simulate the process injection attack to verify that the detection rule works as expected.
+
+![](scenarios/process_injection_detection/images/image.png)
+Dashboard before attack (no alerts)
+
+![](scenarios/process_injection_detection/images/image1.png)
+Executing malicious file main.exe
