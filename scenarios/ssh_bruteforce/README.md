@@ -76,6 +76,7 @@ After several failed login attempts, Wazuh detects the suspicious activity using
 Once the alert is triggered, Wazuh automatically executes the Active Response module. The firewall-drop script is triggered to block the attacker's IP address
 
 ![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/ssh_bruteforce/images/image5.png)
+
 To verify the effectiveness of the response, we attempt to connect from the attacker machine again. The attacker can no longer communicate with the victim server, and even ICMP ping requests fail.
 
 This confirms that the attacker's IP has been successfully blocked.
