@@ -14,19 +14,7 @@ To enhance the defensive capability, Wazuh Active Response is configured to auto
 
 Detection and response flow:
 
-Attacker performs SSH brute force
-        ↓
-Multiple failed login attempts logged in auth.log
-        ↓
-Wazuh agent collects logs
-        ↓
-Wazuh rule 2502 triggered
-        ↓
-Security alert generated
-        ↓
-Active response triggered
-        ↓
-Attacker IP blocked automatically
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/ssh_bruteforce/images/flow.jpg)
 
 ## 2 Active Response Configuration
 
