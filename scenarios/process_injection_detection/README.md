@@ -89,5 +89,5 @@ After completing the configuration on both the Windows Agent and Wazuh Manager, 
 ![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image.png)
 Dashboard before attack (no alerts)
 
-![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image1.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image2.png)
 Executing malicious file main.exe
