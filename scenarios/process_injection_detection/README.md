@@ -103,3 +103,16 @@ Wazuh Alert - Process Injection detected (1)
 
 ![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/process_injection_detection/images/image6.png)
 Wazuh Alert - Process Injection detected (2)
+
+## 4. Conclusion
+The experiment demonstrates that Wazuh, when combined with Sysmon, can effectively detect Process Injection attacks (MITRE ATT&CK T1055.001). 
+
+When the malicious executable performed `CreateRemoteThread` to inject payload into `notepad.exe`, Sysmon captured Event ID 8 and forwarded the log to Wazuh. The custom rules successfully matched the suspicious behavior and generated a high-severity (Level 12) alert on the dashboard in near real-time.
+
+This scenario proves the value of integrating detailed system monitoring (Sysmon) with a powerful SIEM (Wazuh) for detecting advanced evasion techniques. The solution is practical and can be applied in real production environments to enhance threat detection and enable faster incident response.
+
+## References
+
+- [Detecting Process Injection Attacks with Wazuh](https://wazuh.com/blog/detecting-process-injection-attacks-with-wazuh/)
+- [Sysmon Configuration Guide - SwiftOnSecurity](https://github.com/SwiftOnSecurity/sysmon-config)
+- [Sysmon TryHackMe Walkthrough](https://igorsec.blog/2023/08/03/sysmon-tryhackme/)
