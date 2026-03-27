@@ -20,7 +20,7 @@ This scenario demonstrates how Wazuh can be used not only for detection but also
 
 Workflow:
 
-![](scenarios/port_scanning/images/images/flowportscanning.drawio.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/flowportscanning.drawio.png)
 
 ## 2 Configuration
 
@@ -160,7 +160,7 @@ sudo nano /var/ossec/integrations/custom-vtip
 
 The integration script can be found here:
 
-👉 [VirusTotal Integration Script](custom-vtip.py)
+👉 [VirusTotal Integration Script](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/port_scanning/custom-vtip.py)
 
 The script performs the following actions:
 
@@ -237,33 +237,33 @@ This scan attempts to discover open ports by sending multiple connection request
 
 **Verification Results**
 
-![](scenarios/port_scanning/images/images/image.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image.png)
 
 At this stage, no suspicious activity has been generated and the Wazuh dashboard shows no security alerts related to port scanning.
 
-![](scenarios/port_scanning/images/images/image2.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image2.png)
 
 Before the attack simulation, the VirusTotal dashboard shows only 18 API requests.
 
-![](scenarios/port_scanning/images/images/image3.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image3.png)
 
 The attacker machine starts scanning the Ubuntu server using Nmap. This generates multiple blocked connection attempts which are recorded by UFW.
 
-![](scenarios/port_scanning/images/images/image4.png)
-![](scenarios/port_scanning/images/images/image5.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image4.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image5.png)
 
 Wazuh detects a high number of blocked packets from the same source IP within a short timeframe and triggers rule 100031, generating a high severity alert.
 
 
-![](scenarios/port_scanning/images/images/image6.png)
-![](scenarios/port_scanning/images/images/image7.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image6.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image7.png)
 
 After rule 100031 is triggered, Wazuh integration automatically executes the custom script to query VirusTotal. The returned IP reputation data is processed by rule 100569 and displayed in the dashboard.
 
 
 Since the IP address used in this lab belongs to a private network range, VirusTotal classifies it as benign, which is expected behavior.
 
-![](scenarios/port_scanning/images/images/image8.png)
+![](https://github.com/mikeH1fsd/SOC-Detection-Lab/blob/main/scenarios/scenarios/port_scanning/images/image8.png)
 
 The VirusTotal request counter increased from 18 to 36 requests, confirming that the integration script successfully performed API queries after the detection rule was triggered.
 
