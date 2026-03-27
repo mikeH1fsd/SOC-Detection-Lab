@@ -20,7 +20,7 @@ This scenario demonstrates how Wazuh can be used not only for detection but also
 
 Workflow:
 
-![](images\flowportscanning.drawio.png)
+![](scenarios/port_scanning/images/images/flowportscanning.drawio.png)
 
 ## 2 Configuration
 
@@ -237,33 +237,33 @@ This scan attempts to discover open ports by sending multiple connection request
 
 **Verification Results**
 
-![](images\image.png)
+![](scenarios/port_scanning/images/images/image.png)
 
 At this stage, no suspicious activity has been generated and the Wazuh dashboard shows no security alerts related to port scanning.
 
-![](images\image2.png)
+![](scenarios/port_scanning/images/images/image2.png)
 
 Before the attack simulation, the VirusTotal dashboard shows only 18 API requests.
 
-![](images\image3.png)
+![](scenarios/port_scanning/images/images/image3.png)
 
 The attacker machine starts scanning the Ubuntu server using Nmap. This generates multiple blocked connection attempts which are recorded by UFW.
 
-![](images\image4.png)
-![](images\image5.png)
+![](scenarios/port_scanning/images/images/image4.png)
+![](scenarios/port_scanning/images/images/image5.png)
 
 Wazuh detects a high number of blocked packets from the same source IP within a short timeframe and triggers rule 100031, generating a high severity alert.
 
 
-![](images\image6.png)
-![](images\image7.png)
+![](scenarios/port_scanning/images/images/image6.png)
+![](scenarios/port_scanning/images/images/image7.png)
 
 After rule 100031 is triggered, Wazuh integration automatically executes the custom script to query VirusTotal. The returned IP reputation data is processed by rule 100569 and displayed in the dashboard.
 
 
 Since the IP address used in this lab belongs to a private network range, VirusTotal classifies it as benign, which is expected behavior.
 
-![](images\image8.png)
+![](scenarios/port_scanning/images/images/image8.png)
 
 The VirusTotal request counter increased from 18 to 36 requests, confirming that the integration script successfully performed API queries after the detection rule was triggered.
 
