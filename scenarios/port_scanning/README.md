@@ -219,7 +219,6 @@ sudo systemctl restart wazuh-manager
 
 ## 3 Attack Simulation & Verification
 
-**3 Attack Simulation & Verification**
 
 After completing the configuration of UFW logging, Wazuh detection rules, and VirusTotal integration, a port scanning attack is simulated to verify that the detection pipeline and threat intelligence enrichment mechanism function correctly.
 
