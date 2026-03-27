@@ -1,0 +1,26 @@
+<group name="local,portscan">
+
+  <rule id="100030" level="3">
+    <if_sid>4100</if_sid>
+    <options>no_log</options>
+    <description>UFW block base event</description>
+  </rule>
+
+  <rule id="100031" level="12" frequency="200" timeframe="60">
+    <if_matched_sid>100030</if_matched_sid>
+    <same_source_ip />
+    <description>Possible Port Scan - 200 blocked packets from same IP in 60s</description>
+    <group>attack,portscan,network</group>
+  </rule>
+
+</group>
+
+<group name="virustotal_ip,custom,threat_intel,ip_reputation">
+
+  <rule id="100569" level="12">
+    <decoded_as>json</decoded_as>
+    <field name="integration">vtip_custom</field>
+    <description>IP Reputation check from VirusTotal integration</description>
+  </rule>
+
+</group>
