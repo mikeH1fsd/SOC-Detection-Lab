@@ -45,11 +45,11 @@ Verify Apache service is running:
 sudo systemctl status apache2
 ```
 
-![](scenarios/sql_injection/images/apache_status.png)
+![](images/apache_status.png)
 
 Test the web server:
 
-![](scenarios/sql_injection/images/landing_page.png)
+![](images/landing_page.png)
 
 ### 2 Configure Firewall (Optional)
 
@@ -106,16 +106,16 @@ Wazuh analyzes the HTTP request using its built-in web attack detection rules an
 
 The following screenshots show the detection process:
 
-![](scenarios/sql_injection/images/image.png)
+![](images/image.png)
 At this stage, no suspicious activity has been generated and the Wazuh dashboard shows no security alerts
 
-![](scenarios/sql_injection/images/image2.png)
+![](images/image2.png)
 The attacker sends a malicious HTTP request containing SQL payload.
 
-![](scenarios/sql_injection/images/image3.png)
+![](images/image3.png)
 Wazuh detects suspicious SQL patterns and triggers the alert ```(Rule 31103)``` (1).
 
-![](scenarios/sql_injection/images/image4.png)
+![](images/image4.png)
 Wazuh detects suspicious SQL patterns and triggers the alert ```(Rule 31103)``` (2).
 
 ## 4 Conclusion
