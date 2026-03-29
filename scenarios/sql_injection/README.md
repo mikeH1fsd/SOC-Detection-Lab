@@ -21,6 +21,7 @@ Wazuh built-in web attack detection rules analyze the HTTP requests and identify
 This scenario demonstrates how Wazuh can detect web application attacks by analyzing web server logs and providing real-time visibility into potential threats.
 
 Workflow:
+
 ![](images/sql_injection_detect.jpg)
 
 ## 2 Configuration
@@ -107,15 +108,19 @@ Wazuh analyzes the HTTP request using its built-in web attack detection rules an
 The following screenshots show the detection process:
 
 ![](images/image.png)
+
 At this stage, no suspicious activity has been generated and the Wazuh dashboard shows no security alerts
 
 ![](images/image2.png)
+
 The attacker sends a malicious HTTP request containing SQL payload.
 
 ![](images/image3.png)
+
 Wazuh detects suspicious SQL patterns and triggers the alert ```(Rule 31103)``` (1).
 
 ![](images/image4.png)
+
 Wazuh detects suspicious SQL patterns and triggers the alert ```(Rule 31103)``` (2).
 
 ## 4 Conclusion
