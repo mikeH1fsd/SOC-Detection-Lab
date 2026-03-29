@@ -21,7 +21,7 @@ Wazuh built-in web attack detection rules analyze the HTTP requests and identify
 This scenario demonstrates how Wazuh can detect web application attacks by analyzing web server logs and providing real-time visibility into potential threats.
 
 Workflow:
-![](scenarios/sql_injection/images/sql_injection_detect.jpg)
+![](images/sql_injection_detect.jpg)
 
 ## 2 Configuration
 
